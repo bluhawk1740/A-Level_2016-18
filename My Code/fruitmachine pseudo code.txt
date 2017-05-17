@@ -1,0 +1,65 @@
+import random //random module
+
+player_credit = 100//pence	
+cost_of_turn = 20//cost of playing the game
+game_is_running = True //the game will run when true e.g. true if you have 20p or over
+array symbols[6]//where the symbols are contained
+symbols[0] = "Cherry"//first element 
+symbols[1] = "Bell"//second element
+symbols[2] = "Lemon"//third element
+symbols[3] = "Orange"//fourth element
+symbols[4] = "Star"//fifth element
+symbols[5] = "Skull"//sixth element
+
+function spins()://this is where the game is played
+	slot1 = symbols[random.randint(0,5)]//this is symbol 1 out of three which will be chosen randomly 
+	slot2 = symbols[random.randint(0,5)]//this is symbol 2 out of three which will be chosen randomly 
+	slot3 = symbols[random.randint(0,5)]//this is symbol 3 out of three which will be chosen randomly 
+	if slot1 == slot2 == slot3 then//this shows the results when the game has 3 identical symbols 
+		if slot1 == "Bell" then//which means all the symbols are bell so you earn 500p
+			player_credit = player_credit + 500//makes the variable add 5oop 
+			return player_credit//variable = function return = fucntion 
+		elif slot1 == "Skull" then//this is the bad result so you would lose all your money
+			player_credit = 0//set to 0 as you lose everything
+			return player_credit//returning again
+		else then//if those 2 circumstances dont occur then you only gain 100p
+			player_credit = player_credit + 100
+			return player_credit
+	if slot1 == slot2 or slot1 == slot3 or slot2 == slot3 then//this is for 2 identical symbols only
+			skull_counter = 0//this is to count how many skulls you have obtained if you have 2 then you lose 100p 
+			for i in range(0,3) then//incrementing repeats an instruction untill the method is completed
+				if slot[i] == skull then//if theres a skull in 1 of the counters then the counter is incremented by 1
+					counter = counter + 1
+				else:
+					counter = counter//if not counter equals counter so if counter equals 1 before it ewquals 1 after therefore nothing will happen 
+			if counter == 2 then//you obtained 2 skulls so lose 100p
+				player_credit = player_credit - 100
+				return player_credit
+			else then 
+				player_credit = player_credit + 50//if you only obtain 2 symbols then you gain 50p
+				return player_credit
+
+
+while game_is_running = True: //when the variable is true then the game is run
+	if player_credit < 20 then//if 20p is a greater amount than your credit then game_is_runnig is set to false therefore the game will not run
+		print ("You don't have enough credit")//message to user
+		game_is_running = False//will not run
+	else then: //however if game_is_running is True then the game will run - you have equal to or over 20p
+		question = input("do you want to play the game, type yes to play type anything else to quit").lower()//message to user asking if they want to play
+		if question == "yes" then//the game will run and you will lose 20p
+			player_credit = player_credit - cost_of_turn//variable player_credit loses 20p and this is saved
+			player_credit=spins()//launching the function, spin fucntion always returns play_credit
+		else then
+			print("thank you for playing")//if you message anything other than yes the game will 
+			game_is_running = False //the game will not run when false so when you enter anything that isnt yes game_is_running variable will be set to false 
+		
+
+
+
+
+
+
+
+		
+		
+		
